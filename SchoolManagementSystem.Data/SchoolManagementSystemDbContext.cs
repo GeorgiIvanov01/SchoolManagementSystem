@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SchoolManagementSystem.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class SchoolManagementSystemDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public SchoolManagementSystemDbContext(DbContextOptions<SchoolManagementSystemDbContext> options)
             : base(options)
         {
         }
