@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace SchoolManagementSystem.Data.Models
 {
-    public class ApplicationUser : IdentityUser<Guid>
+    public class ApplicationUser : IdentityUser<int>
     {
-        public ApplicationUser() 
-        { 
-            Id = Guid.NewGuid();
-        }
+       
     }
 }

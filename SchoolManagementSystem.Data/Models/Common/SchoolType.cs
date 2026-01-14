@@ -1,4 +1,4 @@
-﻿namespace SchoolManagementSystem.Data.Models
+﻿namespace SchoolManagementSystem.Data.Models.Common
 {
     public class SchoolType
     {
