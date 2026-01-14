@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolManagementSystem.Data.Data;
 
@@ -11,9 +12,11 @@ using SchoolManagementSystem.Data.Data;
 namespace SchoolManagementSystem.Data.Migrations
 {
     [DbContext(typeof(SchoolManagementSystemDbContext))]
-    partial class SchoolManagementSystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260114164127_removedAtributes")]
+    partial class removedAtributes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -227,28 +230,6 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("SchoolManagementSystem.Data.Models.Common.Emails", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("EmailAddress")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<int>("SchoolId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SchoolId");
-
-                    b.ToTable("Emails");
-                });
-
             modelBuilder.Entity("SchoolManagementSystem.Data.Models.Common.PhoneNumber", b =>
                 {
                     b.Property<int>("Id")
@@ -272,28 +253,6 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.ToTable("PhoneNumbers");
                 });
 
-            modelBuilder.Entity("SchoolManagementSystem.Data.Models.Common.SchoolProfiles", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<int?>("SchoolId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SchoolId");
-
-                    b.ToTable("SchoolProfiles");
-                });
-
             modelBuilder.Entity("SchoolManagementSystem.Data.Models.School", b =>
                 {
                     b.Property<int>("Id")
@@ -301,15 +260,6 @@ namespace SchoolManagementSystem.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.Property<string>("SchoolType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -367,16 +317,6 @@ namespace SchoolManagementSystem.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SchoolManagementSystem.Data.Models.Common.Emails", b =>
-                {
-                    b.HasOne("SchoolManagementSystem.Data.Models.School", "School")
-                        .WithMany("Emails")
-                        .HasForeignKey("SchoolId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.Navigation("School");
-                });
-
             modelBuilder.Entity("SchoolManagementSystem.Data.Models.Common.PhoneNumber", b =>
                 {
                     b.HasOne("SchoolManagementSystem.Data.Models.School", "School")
@@ -388,23 +328,9 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.Navigation("School");
                 });
 
-            modelBuilder.Entity("SchoolManagementSystem.Data.Models.Common.SchoolProfiles", b =>
-                {
-                    b.HasOne("SchoolManagementSystem.Data.Models.School", "School")
-                        .WithMany("SchoolPofiles")
-                        .HasForeignKey("SchoolId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.Navigation("School");
-                });
-
             modelBuilder.Entity("SchoolManagementSystem.Data.Models.School", b =>
                 {
-                    b.Navigation("Emails");
-
                     b.Navigation("PhoneNumbers");
-
-                    b.Navigation("SchoolPofiles");
                 });
 #pragma warning restore 612, 618
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SchoolManagementSystem.Data.Models
 {
-    public class SchoolStaff
+    public class Teacher
     {
         [Key]
         public int Id { get; set; }

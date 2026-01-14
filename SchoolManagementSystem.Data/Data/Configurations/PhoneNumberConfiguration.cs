@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SchoolManagementSystem.Data.Models.Common;
 
@@ -18,8 +13,8 @@ namespace SchoolManagementSystem.Data.Data.Configurations
 
             builder
                 .Property(pn => pn.Number)
-                .IsRequired()
-                .HasMaxLength(15);
+                .HasMaxLength(15)
+                .IsRequired(true);
         }
     }
 }

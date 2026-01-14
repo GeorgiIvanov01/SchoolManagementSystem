@@ -32,6 +32,12 @@ namespace SchoolManagementSystem.Data.Data
 
             builder
                 .ApplyConfiguration(new PhoneNumberConfiguration());
+
+            builder
+                .ApplyConfiguration(new EmailConfiguration());
+
+            builder
+                .ApplyConfiguration(new SchoolProfilesConfiguration());
         }
     }
 }

@@ -9,7 +9,7 @@ namespace SchoolManagementSystem.Data.Models
 {
     public class Student
     {
-        [Key]
         public int Id { get; set; }
+
     }
 }

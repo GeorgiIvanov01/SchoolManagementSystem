@@ -1,19 +1,26 @@
 ﻿using SchoolManagementSystem.Data.Models.Common;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SchoolManagementSystem.Data.Models.Enums;
 
 namespace SchoolManagementSystem.Data.Models
 {
     public class School
     {
-        [Key]
         public int Id { get; set; }
 
-        [Required]
+        public string Name { get; set; } = null!;
+
+        public required SchoolTypes SchoolType { get; set; }
+
+        public string  Address { get; set; } = null!;
+
         public ICollection<PhoneNumber> PhoneNumbers { get; set; } = new List<PhoneNumber>();
+
+        public ICollection<Emails>? Emails { get; set; } = new List<Emails>();
+
+        public ICollection<SchoolProfiles>? SchoolPofiles { get; set; } = new List<SchoolProfiles>();
+
+        public virtual ICollection<Student> Students { get; set; } = new List<Student>();
+
+        public virtual ICollection<Teacher> Teachers { get; set; } = new List<Teacher>();
     }
 }

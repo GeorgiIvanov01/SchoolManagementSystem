@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SchoolManagementSystem.Data.Models
 {
-    public class Parents
+    public class Parent
     {
         [Key]
         public int Id { get; set; }
