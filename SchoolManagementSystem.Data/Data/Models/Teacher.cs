@@ -6,6 +6,7 @@ namespace SchoolManagementSystem.Data.Models
     {
         public int Id { get; set; }
         public string FirstName { get; set; } = null!;
+        public string MiddleName { get; set; } = null!;
         public string LastName { get; set; } = null!;
         public bool IsHeadTeacher { get; set; }
         public bool IsDirector { get; set; }

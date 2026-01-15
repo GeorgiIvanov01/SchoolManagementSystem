@@ -13,12 +13,16 @@ namespace SchoolManagementSystem.Data.Data.Configurations
 
             builder
                 .Property(t => t.FirstName)
-                .IsRequired()
+                .IsRequired(true)
+                .HasMaxLength(50);
+
+            builder .Property(t => t.MiddleName)
+                .IsRequired(true)
                 .HasMaxLength(50);
 
             builder
                 .Property(t => t.LastName)
-                .IsRequired()
+                .IsRequired(true)
                 .HasMaxLength(50);
 
             builder
