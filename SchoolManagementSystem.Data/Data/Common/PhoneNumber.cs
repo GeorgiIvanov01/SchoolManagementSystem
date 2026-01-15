@@ -12,5 +12,8 @@ namespace SchoolManagementSystem.Data.Data.Common
 
         public int TeacherId { get; set; }
         public Teacher Teacher { get; set; } = null!;
+
+        public int ParentId { get; set; }
+        public Parent Parent { get; set; } = null!;
     }
 }
