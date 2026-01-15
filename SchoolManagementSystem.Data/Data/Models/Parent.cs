@@ -9,7 +9,8 @@ namespace SchoolManagementSystem.Data.Models
 {
     public class Parent
     {
-        [Key]
         public int Id { get; set; }
+
+        public ICollection<Student> Students { get; set; } = new List<Student>();
     }
 }

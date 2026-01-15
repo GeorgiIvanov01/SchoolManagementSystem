@@ -38,6 +38,18 @@ namespace SchoolManagementSystem.Data.Data
 
             builder
                 .ApplyConfiguration(new SchoolProfilesConfiguration());
+
+            builder
+                .ApplyConfiguration(new StudentConfiguration());
+
+            builder
+                .ApplyConfiguration(new GradeBookConfiguration());
+
+            builder
+                .ApplyConfiguration(new TeacherConfiguration());
+
+            
+
         }
     }
 }
