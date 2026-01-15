@@ -1,6 +1,6 @@
 ﻿using SchoolManagementSystem.Data.Models;
 
-namespace SchoolManagementSystem.Data.Data.Models.Common
+namespace SchoolManagementSystem.Data.Data.Common
 {
     public class Subject
     {

@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using SchoolManagementSystem.Data.Models;
-using SchoolManagementSystem.Data.Models.Common;
+using SchoolManagementSystem.Data.Data.Common;
 using SchoolManagementSystem.Data.Data.Configurations;
+using SchoolManagementSystem.Data.Models;
 
 namespace SchoolManagementSystem.Data.Data
 {

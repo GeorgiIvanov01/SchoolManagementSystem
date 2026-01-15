@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SchoolManagementSystem.Data.Models.Common;
+using SchoolManagementSystem.Data.Data.Common;
 
 namespace SchoolManagementSystem.Data.Data.Configurations
 {

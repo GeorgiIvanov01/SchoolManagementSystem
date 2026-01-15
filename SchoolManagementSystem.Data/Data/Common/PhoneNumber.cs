@@ -1,4 +1,6 @@
-﻿namespace SchoolManagementSystem.Data.Models.Common
+﻿using SchoolManagementSystem.Data.Models;
+
+namespace SchoolManagementSystem.Data.Data.Common
 {
     public class PhoneNumber
     {
@@ -7,5 +9,8 @@
 
         public int SchoolId { get; set; }
         public School School { get; set; } = null!;
+
+        public int TeacherId { get; set; }
+        public Teacher Teacher { get; set; } = null!;
     }
 }

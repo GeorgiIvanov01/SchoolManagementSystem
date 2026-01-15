@@ -1,4 +1,6 @@
-﻿namespace SchoolManagementSystem.Data.Models.Common
+﻿using SchoolManagementSystem.Data.Models;
+
+namespace SchoolManagementSystem.Data.Data.Common
 {
     public class SchoolProfiles
     {

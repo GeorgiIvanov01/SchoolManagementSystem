@@ -1,5 +1,5 @@
-﻿using SchoolManagementSystem.Data.Models.Common;
-using SchoolManagementSystem.Data.Models.Enums;
+﻿using SchoolManagementSystem.Data.Data.Common;
+using SchoolManagementSystem.Data.Data.Enums;
 
 namespace SchoolManagementSystem.Data.Models
 {
@@ -15,9 +15,9 @@ namespace SchoolManagementSystem.Data.Models
 
         public ICollection<PhoneNumber> PhoneNumbers { get; set; } = new List<PhoneNumber>();
 
-        public ICollection<Emails>? Emails { get; set; } = new List<Emails>();
+        public ICollection<Emails> Emails { get; set; } = new List<Emails>();
 
-        public ICollection<SchoolProfiles>? SchoolPofiles { get; set; } = new List<SchoolProfiles>();
+        public ICollection<SchoolProfiles> SchoolPofiles { get; set; } = new List<SchoolProfiles>();
 
         public virtual ICollection<Student> Students { get; set; } = new List<Student>();
 

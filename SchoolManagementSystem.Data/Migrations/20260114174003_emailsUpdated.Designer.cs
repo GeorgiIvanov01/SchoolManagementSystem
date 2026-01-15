@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolManagementSystem.Data.Data;
 
+
 #nullable disable
 
 namespace SchoolManagementSystem.Data.Migrations

@@ -1,4 +1,4 @@
-﻿namespace SchoolManagementSystem.Data.Models.Enums
+﻿namespace SchoolManagementSystem.Data.Data.Enums
 {
         public enum SchoolTypes
         {

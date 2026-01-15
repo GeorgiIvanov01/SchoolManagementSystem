@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolManagementSystem.Data.Data;
 
@@ -11,9 +12,11 @@ using SchoolManagementSystem.Data.Data;
 namespace SchoolManagementSystem.Data.Migrations
 {
     [DbContext(typeof(SchoolManagementSystemDbContext))]
-    partial class SchoolManagementSystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260115162155_RealationRefactoringDone")]
+    partial class RealationRefactoringDone
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -174,14 +177,9 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.Property<int?>("SchoolId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TeacherId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("SchoolId");
-
-                    b.HasIndex("TeacherId");
 
                     b.ToTable("Emails");
                 });
@@ -202,14 +200,9 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.Property<int>("SchoolId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TeacherId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("SchoolId");
-
-                    b.HasIndex("TeacherId");
 
                     b.ToTable("PhoneNumbers");
                 });
@@ -378,12 +371,6 @@ namespace SchoolManagementSystem.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsDirector")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsHeadTeacher")
-                        .HasColumnType("bit");
-
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -471,13 +458,7 @@ namespace SchoolManagementSystem.Data.Migrations
                         .HasForeignKey("SchoolId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("SchoolManagementSystem.Data.Models.Teacher", "Teacher")
-                        .WithMany("Emails")
-                        .HasForeignKey("TeacherId");
-
                     b.Navigation("School");
-
-                    b.Navigation("Teacher");
                 });
 
             modelBuilder.Entity("SchoolManagementSystem.Data.Data.Common.PhoneNumber", b =>
@@ -488,15 +469,7 @@ namespace SchoolManagementSystem.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SchoolManagementSystem.Data.Models.Teacher", "Teacher")
-                        .WithMany("PhoneNumbers")
-                        .HasForeignKey("TeacherId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("School");
-
-                    b.Navigation("Teacher");
                 });
 
             modelBuilder.Entity("SchoolManagementSystem.Data.Data.Common.SchoolProfiles", b =>
@@ -549,13 +522,6 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.Navigation("Students");
 
                     b.Navigation("Teachers");
-                });
-
-            modelBuilder.Entity("SchoolManagementSystem.Data.Models.Teacher", b =>
-                {
-                    b.Navigation("Emails");
-
-                    b.Navigation("PhoneNumbers");
                 });
 #pragma warning restore 612, 618
         }
