@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using SchoolManagementSystem.Data.Data.Common;
 using SchoolManagementSystem.Data.Data.Configurations;
 using SchoolManagementSystem.Data.Data.Models;
-using SchoolManagementSystem.Data.Models;
 
 namespace SchoolManagementSystem.Data.Data
 {
@@ -33,15 +30,6 @@ namespace SchoolManagementSystem.Data.Data
         public  DbSet<StudentClass> StudentClasses { get; set; } = null!;
         public  DbSet<StaffRoleAssignment> StaffRoleAssignments { get; set; } = null!;
 
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    if (!optionsBuilder.IsConfigured)
-        //    {
-        //        optionsBuilder
-        //            .UseSqlServer(Configuration.ConnectionString);
-        //    }
-        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
