@@ -38,7 +38,7 @@ namespace SchoolManagementSystem.Data.Data.Configurations
                 .HasMany(s => s.Emails)
                 .WithOne(e => e.School)
                 .HasForeignKey(e => e.SchoolId)
-                .IsRequired(false)
+                .IsRequired(true)
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder

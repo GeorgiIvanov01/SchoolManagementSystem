@@ -4,9 +4,9 @@ using SchoolManagementSystem.Data.Data.Common;
 
 namespace SchoolManagementSystem.Data.Data.Configurations
 {
-    public class EmailConfiguration : IEntityTypeConfiguration<Emails>
+    public class EmailConfiguration : IEntityTypeConfiguration<Email>
     {
-        public void Configure(EntityTypeBuilder<Emails> builder)
+        public void Configure(EntityTypeBuilder<Email> builder)
         {
             builder
                 .HasKey(e => e.Id);

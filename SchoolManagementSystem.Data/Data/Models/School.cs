@@ -15,9 +15,9 @@ namespace SchoolManagementSystem.Data.Models
 
         public ICollection<PhoneNumber> PhoneNumbers { get; set; } = new List<PhoneNumber>();
 
-        public ICollection<Emails> Emails { get; set; } = new List<Emails>();
+        public ICollection<Email> Emails { get; set; } = new List<Email>();
 
-        public ICollection<SchoolProfiles> SchoolPofiles { get; set; } = new List<SchoolProfiles>();
+        public ICollection<SchoolProfile> SchoolPofiles { get; set; } = new List<SchoolProfile>();
 
         public virtual ICollection<Student> Students { get; set; } = new List<Student>();
 

@@ -4,9 +4,9 @@ using SchoolManagementSystem.Data.Data.Common;
 
 namespace SchoolManagementSystem.Data.Data.Configurations
 {
-    public class SchoolProfilesConfiguration : IEntityTypeConfiguration<SchoolProfiles>
+    public class SchoolProfilesConfiguration : IEntityTypeConfiguration<SchoolProfile>
     {
-        public void Configure(EntityTypeBuilder<SchoolProfiles> builder)
+        public void Configure(EntityTypeBuilder<SchoolProfile> builder)
         {
             builder
                 .HasKey(sp => sp.Id);

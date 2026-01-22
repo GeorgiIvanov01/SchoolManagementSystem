@@ -16,6 +16,11 @@ namespace SchoolManagementSystem.Data.Data.Configurations
                 .WithOne(s => s.GradeBooks)
                 .HasForeignKey<GradeBook>(gb => gb.StudentId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder
+                .Property(gb => gb.Grade)
+                .IsRequired(false);
+
         }
     }
 }

@@ -2,13 +2,13 @@
 
 namespace SchoolManagementSystem.Data.Data.Common
 {
-    public class Emails
+    public class Email
     {
         public int Id { get; set; }
         public string EmailAddress { get; set; } = null!;
 
-        public int? SchoolId { get; set; }
-        public School? School { get; set; }
+        public int SchoolId { get; set; }
+        public School School { get; set; } = null!;
 
         public int? TeacherId { get; set; }
         public Teacher? Teacher { get; set; }

@@ -2,7 +2,7 @@
 
 namespace SchoolManagementSystem.Data.Data.Common
 {
-    public class SchoolProfiles
+    public class SchoolProfile
     {
         public int Id { get; set; }
         public string Name { get; set; } = null!;
