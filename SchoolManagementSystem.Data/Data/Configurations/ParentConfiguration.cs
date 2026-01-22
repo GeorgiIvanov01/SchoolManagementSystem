@@ -4,9 +4,9 @@ using SchoolManagementSystem.Data.Data.Models;
 
 namespace SchoolManagementSystem.Data.Data.Configurations
 {
-    public class StudentConfiguration : IEntityTypeConfiguration<Student>
+    public class ParentConfiguration : IEntityTypeConfiguration<Parent>
     {
-        public void Configure(EntityTypeBuilder<Student> entity)
+        public void Configure(EntityTypeBuilder<Parent> entity)
         {
             entity
                 .HasKey(e => e.Id);
@@ -21,13 +21,13 @@ namespace SchoolManagementSystem.Data.Data.Configurations
                 .IsRequired(false)
                 .HasMaxLength(50);
 
-            entity .Property(e => e.LastName)
+            entity
+                .Property(e => e.LastName)
                 .IsRequired(true)
                 .HasMaxLength(50);
 
             entity
                 .OwnsOne(i => i.Info, InfoModelBuilder.Configure);
-
         }
     }
 }

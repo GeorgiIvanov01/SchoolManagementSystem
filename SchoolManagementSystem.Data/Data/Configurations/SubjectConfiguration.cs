@@ -4,16 +4,17 @@ using SchoolManagementSystem.Data.Data.Common;
 
 namespace SchoolManagementSystem.Data.Data.Configurations
 {
-    public class GradeConfiguration : IEntityTypeConfiguration<Grade>
+    public class SubjectConfiguration : IEntityTypeConfiguration<Subject>
     {
-        public void Configure(EntityTypeBuilder<Grade> entity)
+        public void Configure(EntityTypeBuilder<Subject> entity)
         {
             entity
                 .HasKey(e => e.Id);
 
             entity
-                .Property(e => e.Value)
-                .IsRequired(true);
+                .Property(e => e.Name)
+                .IsRequired(true)
+                .HasMaxLength(100);
         }
     }
 }

@@ -4,15 +4,19 @@ using SchoolManagementSystem.Data.Data.Common;
 
 namespace SchoolManagementSystem.Data.Data.Configurations
 {
-    public class GradeConfiguration : IEntityTypeConfiguration<Grade>
+    public class AttendanceConfiguration : IEntityTypeConfiguration<Attendance>
     {
-        public void Configure(EntityTypeBuilder<Grade> entity)
+        public void Configure(EntityTypeBuilder<Attendance> entity)
         {
             entity
                 .HasKey(e => e.Id);
 
             entity
-                .Property(e => e.Value)
+                .Property(e => e.IsPresent)
+                .IsRequired(true);
+
+            entity
+                .Property(e => e.Date)
                 .IsRequired(true);
         }
     }

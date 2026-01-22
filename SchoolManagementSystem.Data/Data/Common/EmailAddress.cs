@@ -1,8 +1,8 @@
 ﻿namespace SchoolManagementSystem.Data.Data.Common
 {
-    public class PhoneNumber
+    public class EmailAddress
     {
         public int Id { get; set; }
-        public string Number { get; set; } = null!;
+        public string Email { get; set; } = null!;
     }
 }

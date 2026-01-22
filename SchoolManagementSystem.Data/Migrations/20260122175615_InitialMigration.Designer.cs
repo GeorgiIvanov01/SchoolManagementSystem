@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolManagementSystem.Data.Data;
 
@@ -11,9 +12,11 @@ using SchoolManagementSystem.Data.Data;
 namespace SchoolManagementSystem.Data.Migrations
 {
     [DbContext(typeof(SchoolManagementSystemDbContext))]
-    partial class SchoolManagementSystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260122175615_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -442,85 +445,6 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.Navigation("Parent");
 
                     b.Navigation("Student");
-                });
-
-            modelBuilder.Entity("SchoolManagementSystem.Data.Data.Models.School", b =>
-                {
-                    b.OwnsOne("SchoolManagementSystem.Data.Data.Common.Info", "Info", b1 =>
-                        {
-                            b1.Property<int>("SchoolId")
-                                .HasColumnType("int");
-
-                            b1.Property<string>("Address")
-                                .HasMaxLength(300)
-                                .HasColumnType("nvarchar(300)");
-
-                            b1.HasKey("SchoolId");
-
-                            b1.ToTable("Schools");
-
-                            b1.WithOwner()
-                                .HasForeignKey("SchoolId");
-
-                            b1.OwnsMany("SchoolManagementSystem.Data.Data.Common.EmailAddress", "Emails", b2 =>
-                                {
-                                    b2.Property<int>("Id")
-                                        .ValueGeneratedOnAdd()
-                                        .HasColumnType("int");
-
-                                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b2.Property<int>("Id"));
-
-                                    b2.Property<string>("Email")
-                                        .IsRequired()
-                                        .HasMaxLength(150)
-                                        .HasColumnType("nvarchar(150)");
-
-                                    b2.Property<int>("OwnerId")
-                                        .HasColumnType("int");
-
-                                    b2.HasKey("Id");
-
-                                    b2.HasIndex("OwnerId");
-
-                                    b2.ToTable("Schools_Emails");
-
-                                    b2.WithOwner()
-                                        .HasForeignKey("OwnerId");
-                                });
-
-                            b1.OwnsMany("SchoolManagementSystem.Data.Data.Common.PhoneNumber", "PhoneNumbers", b2 =>
-                                {
-                                    b2.Property<int>("Id")
-                                        .ValueGeneratedOnAdd()
-                                        .HasColumnType("int");
-
-                                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b2.Property<int>("Id"));
-
-                                    b2.Property<string>("Number")
-                                        .IsRequired()
-                                        .HasMaxLength(30)
-                                        .HasColumnType("nvarchar(30)");
-
-                                    b2.Property<int>("OwnerId")
-                                        .HasColumnType("int");
-
-                                    b2.HasKey("Id");
-
-                                    b2.HasIndex("OwnerId");
-
-                                    b2.ToTable("Schools_PhoneNumbers");
-
-                                    b2.WithOwner()
-                                        .HasForeignKey("OwnerId");
-                                });
-
-                            b1.Navigation("Emails");
-
-                            b1.Navigation("PhoneNumbers");
-                        });
-
-                    b.Navigation("Info")
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("SchoolManagementSystem.Data.Data.Models.Staff", b =>
