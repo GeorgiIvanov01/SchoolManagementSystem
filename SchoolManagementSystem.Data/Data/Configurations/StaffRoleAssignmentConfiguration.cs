@@ -11,6 +11,12 @@ namespace SchoolManagementSystem.Data.Data.Configurations
         {
             entity
                 .HasKey(e => new { e.StaffId, e.Role });
+
+            entity
+                .HasOne(e => e.Staff)
+                .WithMany(s => s.Roles)
+                .HasForeignKey(e => e.StaffId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

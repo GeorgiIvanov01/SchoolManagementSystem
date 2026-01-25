@@ -26,8 +26,40 @@ namespace SchoolManagementSystem.Data.Data.Configurations
                 .HasMaxLength(50);
 
             entity
-                .OwnsOne(i => i.Info, InfoModelBuilder.Configure);
+                .HasOne(e => e.Info)
+                .WithOne(i => i.Student)
+                .HasForeignKey<Student>(e => e.InfoId)
+                .OnDelete(DeleteBehavior.Cascade);
 
+            entity
+                .HasOne(e => e.School)
+                .WithMany(s => s.Students)
+                .HasForeignKey(e => e.SchoolId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            entity
+                .HasOne(e => e.Class)
+                .WithMany(c => c.Students)
+                .HasForeignKey(e => e.ClassId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            entity
+                .HasMany(e => e.Parents)
+                .WithOne(ps => ps.Student)
+                .HasForeignKey(ps => ps.StudentId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            entity
+                .HasMany(e => e.SubjectGrades)
+                .WithOne(g => g.Student)
+                .HasForeignKey(g => g.StudentId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            entity
+                .HasMany(e => e.Absences)
+                .WithOne(a => a.Student)
+                .HasForeignKey(a => a.StudentId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

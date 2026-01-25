@@ -4,9 +4,9 @@ using SchoolManagementSystem.Data.Data.Common;
 
 namespace SchoolManagementSystem.Data.Data.Configurations
 {
-    public class AttendanceConfiguration : IEntityTypeConfiguration<Attendance>
+    public class AbsenceConfiguration : IEntityTypeConfiguration<Absence>
     {
-        public void Configure(EntityTypeBuilder<Attendance> entity)
+        public void Configure(EntityTypeBuilder<Absence> entity)
         {
             entity
                 .HasKey(e => e.Id);
@@ -18,6 +18,13 @@ namespace SchoolManagementSystem.Data.Data.Configurations
             entity
                 .Property(e => e.Date)
                 .IsRequired(true);
+
+            entity
+                .HasOne(e => e.Student)
+                .WithMany(s => s.Absences)
+                .HasForeignKey(e => e.StudentId)
+                .IsRequired(true)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

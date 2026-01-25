@@ -14,6 +14,25 @@ namespace SchoolManagementSystem.Data.Data.Configurations
             entity
                 .Property(e => e.Value)
                 .IsRequired(true);
+
+            entity
+                .HasOne(e => e.Subject)
+                .WithOne(s => s.Grade)
+                .HasForeignKey<Grade>(e => e.SubjectId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            entity
+                .Property(e => e.DateRecorded)
+                .IsRequired(true);
+
+            entity .Property(e => e.GradeType)
+                .IsRequired(true);
+
+            entity
+                .HasOne(e => e.Student)
+                .WithMany(s => s.SubjectGrades)
+                .HasForeignKey(e => e.StudentId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

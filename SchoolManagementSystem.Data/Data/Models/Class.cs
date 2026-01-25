@@ -1,17 +1,23 @@
-﻿namespace SchoolManagementSystem.Data.Data.Models
+﻿using SchoolManagementSystem.Data.Data.Common;
+
+namespace SchoolManagementSystem.Data.Data.Models
 {
     public class Class
     {
         public int Id { get; set; }
-        public int Grade { get; set; }
+        public int SchoolGrade { get; set; }
         public char Section { get; set; }
 
         public int SchoolId { get; set; }
         public School School { get; set; } = null!;
 
-        public int? LeadTeacherId { get; set; }
-        public Staff? LeadTeacher { get; set; }
+        public ICollection<DailyProgram> ClassProgram { get; set; } 
+            = new List<DailyProgram>();
 
-        public ICollection<StudentClass> Students { get; set; } = new List<StudentClass>();
+        public ICollection<Student> Students { get; set; }
+            = new List<Student>();
+
+        public ICollection<Exam> Exams { get; set; } 
+            = new List<Exam>();
     }
 }

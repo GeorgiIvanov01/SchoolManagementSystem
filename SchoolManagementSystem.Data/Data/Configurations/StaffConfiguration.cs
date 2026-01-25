@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using SchoolManagementSystem.Data.Data.Common;
 using SchoolManagementSystem.Data.Data.Models;
 
 namespace SchoolManagementSystem.Data.Data.Configurations
@@ -27,7 +28,28 @@ namespace SchoolManagementSystem.Data.Data.Configurations
                 .HasMaxLength(50);
 
             entity
-                .OwnsOne(i => i.Info, InfoModelBuilder.Configure);
+                .HasOne(e => e.Info)
+                .WithOne(i => i.Staff)
+                .HasForeignKey<Staff>(e => e.InfoId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            entity
+                .HasOne(e => e.School)
+                .WithMany(s => s.Staff)
+                .HasForeignKey(e => e.SchoolId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            entity
+                .HasMany(e => e.Roles)
+                .WithOne(e => e.Staff)
+                .HasForeignKey(e => e.StaffId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            entity
+                .HasMany(e => e.Subjects)
+                .WithOne(e => e.Staff)
+                .HasForeignKey(e => e.StaffId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
 
     }

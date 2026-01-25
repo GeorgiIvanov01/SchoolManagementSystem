@@ -2,7 +2,7 @@
 
 namespace SchoolManagementSystem.Data.Data.Common
 {
-    public class Attendance
+    public class Absence
     {
         public int Id { get; set; }
         public bool IsPresent { get; set; }

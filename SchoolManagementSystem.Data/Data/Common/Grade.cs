@@ -1,4 +1,5 @@
-﻿using SchoolManagementSystem.Data.Data.Models;
+﻿using SchoolManagementSystem.Data.Data.Enums;
+using SchoolManagementSystem.Data.Data.Models;
 
 namespace SchoolManagementSystem.Data.Data.Common
 {
@@ -6,11 +7,13 @@ namespace SchoolManagementSystem.Data.Data.Common
     {
         public int Id { get; set; }
         public int Value { get; set; }
-
-        public int StudentId { get; set; }
-        public Student Student { get; set; } = null!;
+        public DateTime DateRecorded { get; set; }
+        public GradeType GradeType { get; set; }
 
         public int SubjectId { get; set; }
         public Subject Subject { get; set; } = null!;
+
+        public int StudentId { get; set; }
+        public Student Student { get; set; } = null!;
     }
 }

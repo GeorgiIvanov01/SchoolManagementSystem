@@ -8,8 +8,11 @@ namespace SchoolManagementSystem.Data.Data.Models
         public string FirstName { get; set; } = null!;
         public string? MiddleName { get; set; }
         public string LastName { get; set; } = null!;
-        public Info Info { get; set; } = new();
 
-        public ICollection<ParentStudent> Students { get; set; } = new List<ParentStudent>();
+        public int InfoId { get; set; }
+        public Info Info { get; set; } = null!;
+
+        public ICollection<ParentStudent> Students { get; set; }
+            = new List<ParentStudent>();
     }
 }

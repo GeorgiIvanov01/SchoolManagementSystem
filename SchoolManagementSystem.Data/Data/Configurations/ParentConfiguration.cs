@@ -27,7 +27,16 @@ namespace SchoolManagementSystem.Data.Data.Configurations
                 .HasMaxLength(50);
 
             entity
-                .OwnsOne(i => i.Info, InfoModelBuilder.Configure);
+                .HasOne(e => e.Info)
+                .WithOne(i => i.Parent)
+                .HasForeignKey<Parent>(e => e.InfoId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            entity
+                .HasMany(e => e.Students)
+                .WithOne(ps => ps.Parent)
+                .HasForeignKey(ps => ps.ParentId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

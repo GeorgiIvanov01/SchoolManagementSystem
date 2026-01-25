@@ -21,7 +21,28 @@ namespace SchoolManagementSystem.Data.Data.Configurations
                 .IsRequired(true);
 
             entity
-                .OwnsOne(i => i.Info, InfoModelBuilder.Configure);
+                .HasOne(e => e.Info)
+                .WithOne(i => i.School)
+                .HasForeignKey<School>(e => e.InfoId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            entity
+                .HasMany(e => e.Classes)
+                .WithOne(c => c.School)
+                .HasForeignKey(c => c.SchoolId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            entity
+                .HasMany(e => e.Staff)
+                .WithOne(s => s.School)
+                .HasForeignKey(s => s.SchoolId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            entity
+                .HasMany(e => e.Students)
+                .WithOne(s => s.School)
+                .HasForeignKey(s => s.SchoolId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
